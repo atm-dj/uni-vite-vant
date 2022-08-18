@@ -2,6 +2,7 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
+			<text class="title" style="font-family: 'Alibaba PuHuiTi B';">{{ title }}</text>
 			<text class="title">{{ title }}</text>
 		</view>
 
