@@ -24,21 +24,21 @@ class Model {
 		// 自定义访问前缀
 		if (opts.domain) baseUrl = opts.domain
 		
-		// token
-		let token, authorize = ''
-		
-		// 获取本地缓存的 token
-		if (uni.getStorageSync('Authorization')) authorize = uni.getStorageSync('Authorization')
-		
 		// 定义 header
-		let header = {
-			Authorization: authorize,
-			'Content-Type': 'application/json; charset=UTF-8'
-		}
-
+		let header = {}
+		
 		// 是否需要传 token，true 不需要传 token，false 需要传 token
-		if (opts.noAuth) {
-			delete header.Authorization
+		if(opts.auth){
+			// token
+			let token, authorize = ''
+			
+			// 获取本地缓存的 token
+			if (uni.getStorageSync('Authorization')) authorize = uni.getStorageSync('Authorization')
+			
+			header = {
+				Authorization: authorize,
+				'Content-Type': 'application/json; charset=UTF-8'
+			}
 		}
 		
 		// 正常接口请求
